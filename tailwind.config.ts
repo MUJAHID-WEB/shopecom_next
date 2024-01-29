@@ -1,3 +1,4 @@
+const {fontFamily}=require('tailwindcss/defaultTheme')
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -34,7 +35,11 @@ const config: Config = {
       },
       boxShadow:{
         bannerShadow:'0 1px 2px 1px #0000026'
-      }
+      },
+
+      fontFamily:{
+        sans: ['var(--font-open_sans)', ...fontFamily.sans ],
+      },
 
     },
   },
