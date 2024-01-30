@@ -24,7 +24,7 @@ const NavbarBottom = () => {
                 </p>
                 <FaPlaceOfWorship />
                 <p className='text-sm text-zinc-100'>
-                    Supercenter
+                    Bangladesh
                 </p>
             </div>
   </div>
