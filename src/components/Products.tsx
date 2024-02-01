@@ -35,7 +35,19 @@ const Products = ({ productData }: any) => {
               <Link
                 href={{
                   pathname: `product/${item._id}`,
+                  query:{
+                    _id: item._id,
+                    title: item.title,
+                    description: item.description,
+                    oldPrice: item.oldPrice,
+                    price: item.price,
+                    brand: item.brand,
+                    image: item.image,
+                    isNew: item.isNew,
+                    category: item.category,
+                  }
                 }}
+                as={`product/${item._id}`}
               >
                 <button className="w-20 h-9 bg-white border-[1px] border-black text-black rounded-full flex gap-1 items-center justify-center hover:bg-black hover:text-white duration-300">
                   <span>
