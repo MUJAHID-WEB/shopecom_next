@@ -88,6 +88,8 @@ const Banner = () => {
 
         </div>
 
+        {/* Side Banner */}
+
         <div className='w-1/3 border-[1px] border-gray-200 rounded-lg shadow-bannerShadow p-4 flex flex-col justify-between relative'>
             <div className='flex items-center justify-between'>
                 <h2 className='text-xl font-semibold text-black'>
@@ -98,7 +100,7 @@ const Banner = () => {
                 </p>
                 
             </div>
-            <Image src='/assets/images/slider/bannerImg.webp' alt='bannerImg' priority width={500} height={60} className='w-full h-full object-cover' />
+            <Image src='/assets/images/slider/bannerImg.webp' alt='bannerImg' priority width={300} height={0} className='w-full h-full object-cover' />
 
             <BtnPrimary btnText='Options' />
             <p className='text-lg text-black font-semibold'>From $199.99</p>

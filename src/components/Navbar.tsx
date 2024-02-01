@@ -57,17 +57,19 @@ const Navbar = () => {
           {/* Favorite/ My Itemss */}
           <div className="navBarHover">
             <AiOutlineHeart className="text-lg" />
-
+            <div>
             <p className="text-xs">Recorder</p>
             <h2 className="text-base font-semibold -mt-1">My Items</h2>
+            </div>
           </div>
 
           {/* Accounts */}
           <div className="navBarHover">
             <AiOutlineUser className="text-lg" />
-
+            <div>
             <p className="text-xs">Sign In</p>
             <h2 className="text-base font-semibold -mt-1">Account</h2>
+            </div>
           </div>
 
           {/* Cart */}

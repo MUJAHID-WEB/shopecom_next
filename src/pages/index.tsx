@@ -4,33 +4,47 @@ import Head from "next/head";
 import Navbar from "@/components/Navbar";
 import NavbarBottom from "@/components/NavbarBottom";
 import Banner from "@/components/Banner";
+import Products from "@/components/Products";
+import { Product } from "../type";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+interface Props {
+  productData: Product;
+}
+
+export default function Home({ productData }: Props) {
+  console.log(productData);
+
   return (
     <>
+      <Head>
+        <title>ShopeCom</title>
+        <meta name="description" content="Developed by Md. Mujahidul Islam" />
+        <meta name="viewport" content="width-device-width, initial-scale=1" />
 
-    <Head >
+        <link rel="icon" href="/smallLogo.ico" />
+      </Head>
 
-      <title>ShopeCom</title>
-      <meta name="description" content="Developed by Md. Mujahidul Islam" />
-      <meta name="viewport" content="width-device-width, initial-scale=1" />
-
-      <link rel="icon" href="/smallLogo.ico" />
-    </Head>
-
-     <main className="bg-lightBlue">
-     <Navbar />
-      <div className="max-w-contentContainer mx-auto bg-white">
-         
-    <Banner />
-      </div>
-
-  
-
-   </main>
+      <main className="bg-lightBlue">
+        <Navbar />
+        <div className="max-w-contentContainer mx-auto bg-white">
+          <Banner />
+          <Products productData = {productData}/>
+        </div>
+      </main>
     </>
-  
   );
 }
+
+// SSR for data fetching
+
+export const getServerSideProps = async () => {
+  const productData = await (
+    await fetch("http://localhost:3000/api/productdata")
+  ).json();
+
+  return {
+    props: { productData },
+  };
+};
