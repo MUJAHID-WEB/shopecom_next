@@ -3,22 +3,25 @@ import Image from "next/image";
 import { BsCart2, BsSearch } from "react-icons/bs";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import NavbarBottom from "./NavbarBottom";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="w-full bg-blue text-white">
+    <div className="w-full bg-blue text-white sticky top-0 z-50">
       <div className="w-full h-full border-b-[1px] border-b-white">
         <div className="max-w-container mx-auto h-20 px-4 flex items-center justify-between  gap-2">
           {/* Logo */}
-          <div className="navBarHover">
-            <Image
-              src="/assets/images/logo.png"
-              width={180}
-              height={30}
-              className=""
-              alt="logo"
-            />
-          </div>
+          <Link href="/">
+            <div className="navBarHover">
+              <Image
+                src="/assets/images/logo.png"
+                width={180}
+                height={30}
+                className=""
+                alt="logo"
+              />
+            </div>
+          </Link>
           {/* Department */}
           <div className="navBarHover">
             <div className="w-4 grid grid-cols-2 gap-[2px]">
@@ -58,8 +61,8 @@ const Navbar = () => {
           <div className="navBarHover">
             <AiOutlineHeart className="text-lg" />
             <div>
-            <p className="text-xs">Recorder</p>
-            <h2 className="text-base font-semibold -mt-1">My Items</h2>
+              <p className="text-xs">Recorder</p>
+              <h2 className="text-base font-semibold -mt-1">My Items</h2>
             </div>
           </div>
 
@@ -67,20 +70,23 @@ const Navbar = () => {
           <div className="navBarHover">
             <AiOutlineUser className="text-lg" />
             <div>
-            <p className="text-xs">Sign In</p>
-            <h2 className="text-base font-semibold -mt-1">Account</h2>
+              <p className="text-xs">Sign In</p>
+              <h2 className="text-base font-semibold -mt-1">Account</h2>
             </div>
           </div>
 
           {/* Cart */}
-          <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative">
-            <BsCart2 className="text-2xl" />
+          <Link href='/cart'>
+            <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative">
+              <BsCart2 className="text-2xl" />
 
-            <p className="text-[10px]">$0.00</p>
-            <span className="absolute w-4 h-4 bg-yellow text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">
-              0
-            </span>
-          </div>
+              <p className="text-[10px]">$0.00</p>
+              <span className="absolute w-4 h-4 bg-yellow text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">
+                0
+              </span>
+            </div>
+          </Link>
+
         </div>
       </div>
       <NavbarBottom />

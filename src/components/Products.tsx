@@ -3,9 +3,10 @@ import Image from "next/image";
 import { Product } from "../type";
 import { GoPlus } from "react-icons/go";
 import { BsStarFill } from "react-icons/bs";
+import Link from "next/link";
 
 const Products = ({ productData }: any) => {
-  console.log(productData);
+  // console.log(productData);
   return (
     <div className="py-6 px-4 grid grid-cols-4 gap-4">
       {productData.map((item: Product) => (
@@ -29,13 +30,20 @@ const Products = ({ productData }: any) => {
                 </span>
                 Add
               </button>
-              <button className="w-20 h-9 bg-white border-[1px] border-black text-black rounded-full flex gap-1 items-center justify-center hover:bg-black hover:text-white duration-300">
-                <span>
-                  {" "}
-                  <GoPlus />{" "}
-                </span>
-                Details
-              </button>
+
+              {/* Details */}
+              <Link
+                href={{
+                  pathname: `product/${item._id}`,
+                }}
+              >
+                <button className="w-20 h-9 bg-white border-[1px] border-black text-black rounded-full flex gap-1 items-center justify-center hover:bg-black hover:text-white duration-300">
+                  <span>
+                    <GoPlus />
+                  </span>
+                  Details
+                </button>
+              </Link>
             </div>
             <div className="flex items-center gap-3">
               <p className="font-titleFont text-lg text-green-700 font-semibold">
@@ -62,7 +70,6 @@ const Products = ({ productData }: any) => {
               </div>
               <p className="text-black">25</p>
             </div>
-
           </div>
         </div>
       ))}

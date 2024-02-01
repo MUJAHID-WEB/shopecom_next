@@ -6,6 +6,8 @@ import NavbarBottom from "@/components/NavbarBottom";
 import Banner from "@/components/Banner";
 import Products from "@/components/Products";
 import { Product } from "../type";
+import TopFooter from "@/components/TopFooter";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +16,6 @@ interface Props {
 }
 
 export default function Home({ productData }: Props) {
-  console.log(productData);
 
   return (
     <>
@@ -27,7 +28,7 @@ export default function Home({ productData }: Props) {
       </Head>
 
       <main className="bg-lightBlue">
-        <Navbar />
+      
         <div className="max-w-contentContainer mx-auto bg-white">
           <Banner />
           <Products productData = {productData}/>
