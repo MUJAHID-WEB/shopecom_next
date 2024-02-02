@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BsCart2, BsSearch } from "react-icons/bs";
 import { AiOutlineHeart, AiOutlineUser } from "react-icons/ai";
 import NavbarBottom from "./NavbarBottom";
 import Link from "next/link";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const data = useSelector((state:any)=> state.shopecom.productData);
+const [totalAmt, setTotalAmt]=useState('')
+
+useEffect(()=>{
+  let price = 0;
+  data.map(((item:any)=>{
+    price += item.price * item.quantity
+    return price
+  }))
+   setTotalAmt(price.toFixed(2))
+}, [data])
+ 
+  
   return (
     <div className="w-full bg-blue text-white sticky top-0 z-50">
       <div className="w-full h-full border-b-[1px] border-b-white">
@@ -80,9 +94,12 @@ const Navbar = () => {
             <div className="flex flex-col justify-center items-center gap-2 h-12 px-5 rounded-full bg-transparent hover:bg-hoverBg duration-300 relative">
               <BsCart2 className="text-2xl" />
 
-              <p className="text-[10px]">$0.00</p>
+              <p className="text-[10px]">
+                ${totalAmt}
+
+              </p>
               <span className="absolute w-4 h-4 bg-yellow text-black top-0 right-4 rounded-full flex items-center justify-center font-bodyFont text-xs">
-                0
+                {data.length > 0 ? data.length : 0}
               </span>
             </div>
           </Link>
@@ -95,3 +112,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

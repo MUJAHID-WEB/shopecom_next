@@ -4,8 +4,12 @@ import { Product } from "../type";
 import { GoPlus } from "react-icons/go";
 import { BsStarFill } from "react-icons/bs";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/redux/shopecomSlice";
 
 const Products = ({ productData }: any) => {
+  const dispatch = useDispatch();  
+
   // console.log(productData);
   return (
     <div className="py-6 px-4 grid grid-cols-4 gap-4">
@@ -23,9 +27,25 @@ const Products = ({ productData }: any) => {
           {/* Description Start */}
           <div className="px-2 py-4 flex flex-col justify-center">
             <div className="flex justify-between py-2">
-              <button className="w-20 h-9 bg-blue text-white rounded-full flex gap-1 items-center justify-center hover:bg-[#004f9a] duration-300">
+              <button
+                onClick={() =>
+                 dispatch(
+                    addToCart({
+                      _id: item._id,
+                      title: item.title,
+                      description: item.description,
+                      oldPrice: item.oldPrice,
+                      price: item.price,
+                      brand: item.brand,
+                      image: item.image,
+                      quantity: 1,
+                      category: item.category,
+                    })
+                  )
+                }
+                className="w-20 h-9 bg-blue text-white rounded-full flex gap-1 items-center justify-center hover:bg-[#004f9a] duration-300"
+              >
                 <span>
-                  {" "}
                   <GoPlus />
                 </span>
                 Add
@@ -35,7 +55,7 @@ const Products = ({ productData }: any) => {
               <Link
                 href={{
                   pathname: `product/${item._id}`,
-                  query:{
+                  query: {
                     _id: item._id,
                     title: item.title,
                     description: item.description,
@@ -45,7 +65,7 @@ const Products = ({ productData }: any) => {
                     image: item.image,
                     isNew: item.isNew,
                     category: item.category,
-                  }
+                  },
                 }}
                 as={`product/${item._id}`}
               >

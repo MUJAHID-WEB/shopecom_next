@@ -81,7 +81,7 @@ const ProductDetails = () => {
             <div className="">
                 <p className="">
                     <span className="font-semibold">$18/mo</span>
-                    <span className="font-bold">withAffirm</span>
+                    <span className="font-bold px-2">withAffirm</span>
                     <span className="underline underline-offset-2">Learn how</span>
                 </p>
                 <p className="text-xs to-zinc-500 flex items-center gap-1">
@@ -100,17 +100,35 @@ const ProductDetails = () => {
 
             {/* Deliver Options */}
             <div className="">
-                <p className="text-base font-semibold">
+                <p className="text-base font-semibold pb-2">
                     how do you want your item?
                 </p>
                 <div className="w-full grid grid-cols-3 gap-4 text-xs">
                     <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center p-2">
-                        <Image src='' width={0} height={0} alt="shippingImg" className=""/>
+                        <Image src='/assets/images/ship/ship1.png' width={40} height={10} alt="shippingImg" className="w-10"/>
                         <p className="">Shipping</p>
                         <p className="">Tomorrow</p>
                         <p className="">Free</p>
                     </div>
+                    <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center p-2">
+                        <Image src='/assets/images/ship/ship2.png' width={40} height={10} alt="shippingImg" className="w-10"/>
+                        <p className="">Pickup</p>
+                        <p className="">Tomorrow</p>
+                        <p className="">Free</p>
+                    </div>
+                    <div className="w-full border border-zinc-400 rounded-md flex flex-col items-center justify-center p-2">
+                        <Image src='/assets/images/ship/ship3.png' width={40} height={10} alt="shippingImg" className="w-10"/>
+                        <p className="">Delivery</p>
+                        <p className="">Tomorrow</p>
+                    </div>
                 </div>
+
+                <p className="font-bold text-xs pt-2">
+                  Sacramento, 95829
+                  <span className="font-normal underline underline-offset-2 ml-1">
+                    Change
+                  </span>
+                </p>
             </div>
           </div>
         </div>
