@@ -1,8 +1,11 @@
+import CartPage from '@/components/CartPage'
 import React from 'react'
 
 const Cart = () => {
   return (
-    <div>Cart</div>
+    <div className='max-w-contentContainer mx-auto'>
+      <CartPage />
+    </div>
   )
 }
 

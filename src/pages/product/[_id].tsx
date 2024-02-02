@@ -1,11 +1,15 @@
+import { addToCart } from "@/redux/shopecomSlice";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import { BsInfoCircle, BsStarFill } from "react-icons/bs";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { useDispatch } from "react-redux";
 
 const ProductDetails = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
   // console.log(router)
   const [product, setProduct] = useState<any>({});
   const [isLoading, setLoding] = useState(false);
@@ -15,6 +19,8 @@ const ProductDetails = () => {
     setProduct(router.query);
     setLoding(false);
   }, []);
+
+  const _id = Number(product._id);
 
   return (
     <div className="w-full bg-white">
@@ -93,7 +99,25 @@ const ProductDetails = () => {
             </div>
             {/* Add to cart */}
             <div className="border-b border-b-zinc-300 pb-4">
-                <button className="w-32 h-10 bg-blue text-white rounded-full hover:bg-[#004f9a] duration-300">
+                <button 
+                 onClick={() =>
+                  dispatch(
+                     addToCart({
+                       _id: _id,
+                       title: product.title,
+                       description: product.description,
+                       oldPrice: product.oldPrice,
+                       price: product.price,
+                       brand: product.brand,
+                       image: product.image,
+                       quantity: 1,
+                       category: product.category,
+                     })
+                     ) && toast.success(
+                      `${product.title.substring(0,20)} is added to cart`
+                    )
+                 }
+                className="w-32 h-10 bg-blue text-white rounded-full hover:bg-[#004f9a] duration-300">
                     Add to cart
                 </button>
             </div>
@@ -124,7 +148,7 @@ const ProductDetails = () => {
                 </div>
 
                 <p className="font-bold text-xs pt-2">
-                  Sacramento, 95829
+                  Dhaka - 1212, Bangladesh
                   <span className="font-normal underline underline-offset-2 ml-1">
                     Change
                   </span>
@@ -133,6 +157,17 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <Toaster 
+      reverseOrder={false}
+      position="top-center"
+      toastOptions={{
+        style:{
+          borderRadius: '8px',
+          background: '#333',
+          color: '#fff'
+        }
+      }}
+      />
     </div>
   );
 };
