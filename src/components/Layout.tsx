@@ -1,25 +1,21 @@
-import React, { ReactElement } from 'react'
-import Navbar from './Navbar'
-import TopFooter from './TopFooter'
-import Footer from './Footer'
+import React, { ReactElement } from "react";
+import Navbar from "./Navbar";
+import TopFooter from "./TopFooter";
+import Footer from "./Footer";
 
-
-interface Props{
-    children:ReactElement
+interface Props {
+  children: ReactElement;
 }
-const Layout = ({children}:Props) => {
+const Layout = ({ children }: Props) => {
   return (
-   <>
-   <Navbar />
-   <main>
-    {children}
+    <>
+      <Navbar />
+      <main>{children}</main>
 
-   </main>
+      <TopFooter />
+      <Footer />
+    </>
+  );
+};
 
-   <TopFooter />
-   <Footer />
-   </>
-  )
-}
-
-export default Layout
+export default Layout;
