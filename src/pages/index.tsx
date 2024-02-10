@@ -1,18 +1,14 @@
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import Navbar from "@/components/Navbar";
-import NavbarBottom from "@/components/NavbarBottom";
-import Banner from "@/components/Banner";
+import Banner from "@/components/HomePage/Banner";
 import Products from "@/components/Products";
 import { Product } from "../type";
-import TopFooter from "@/components/TopFooter";
-import Footer from "@/components/Footer";
+import AdsOne from "@/components/HomePage/AdsOne";
 
 const inter = Inter({ subsets: ["latin"] });
 
 interface Props {
-  productData: Product;
+  productData: Product[];
 }
 
 export default function Home({ productData }: Props) {
@@ -30,8 +26,20 @@ export default function Home({ productData }: Props) {
       <main className="bg-lightBlue">
       
         <div className="max-w-contentContainer mx-auto bg-white">
-          <Banner />
-          <Products productData = {productData}/>
+          <Banner  />
+          
+          <Products 
+          productData = {productData}
+          sectionTitle = 'Featured Products'
+          />
+
+          <AdsOne />
+
+          <Products 
+          productData = {productData}
+          sectionTitle = 'Latest Products'
+          />
+
         </div>
       </main>
     </>

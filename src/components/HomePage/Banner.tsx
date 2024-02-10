@@ -4,7 +4,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import BannerSlider from "./BannerSlider";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import BtnPrimary from "./BtnPrimary";
+import BtnPrimary from "../BtnPrimary";
 
 function SampleNextArrow(props: any) {
   const { onClick } = props;
@@ -48,7 +48,7 @@ const Banner = () => {
       <div className="w-2/3 border-[1px] border-gray-200 rounded-lg h-[410px] shadow-bannerShadow relative">
         <Slider {...settings}>
           <BannerSlider
-            image="/assets/images/slider/sliderImgOne.webp"
+            image="/assets/images/slider/04.png"
             title="Spring Fashion in bloom"
             description="Now trends & styles to turn heads anytime, on any budget."
             btntext="Shop Now"
@@ -56,7 +56,7 @@ const Banner = () => {
           />
 
           <BannerSlider
-            image="/assets/images/slider/sliderImgTwo.webp"
+            image="/assets/images/slider/05.png"
             title="Spring Fashion in bloom"
             description="Now trends & styles to turn heads anytime, on any budget."
             btntext="Shop Now"
@@ -64,7 +64,7 @@ const Banner = () => {
           />
 
           <BannerSlider
-            image="/assets/images/slider/sliderImgThree.webp"
+            image="/assets/images/slider/06.png"
             title="Spring Fashion in bloom"
             description="Now trends & styles to turn heads anytime, on any budget."
             btntext="Shop Now"
@@ -72,7 +72,7 @@ const Banner = () => {
           />
 
           <BannerSlider
-            image="/assets/images/slider/sliderImgFour.webp"
+            image="/assets/images/slider/04.png"
             title="Spring Fashion in bloom"
             description="Now trends & styles to turn heads anytime, on any budget."
             btntext="Shop Now"
@@ -80,7 +80,7 @@ const Banner = () => {
           />
 
           <BannerSlider
-            image="/assets/images/slider/sliderImgFive.webp"
+            image="/assets/images/slider/05.png"
             title="Spring Fashion in bloom"
             description="Now trends & styles to turn heads anytime, on any budget."
             btntext="Shop Now"
@@ -100,15 +100,16 @@ const Banner = () => {
             View all
           </p>
         </div>
+        <div className="relative w-[265px] aspect-[283/100] my-2">
         <Image
-          src="/assets/images/slider/bannerImg.webp"
+          src="/assets/images/slider/banner.png"
           alt="bannerImg"
           
           width={250}
-          height={200}
+          height={0}
           className="w-full object-cover"
         />
-
+</div>
         <BtnPrimary btnText="Options" />
         <p className="text-lg text-black font-semibold">From $199.99</p>
         <p className="text-base text-gray-500 -mt-1">
