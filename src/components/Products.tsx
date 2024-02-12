@@ -20,7 +20,7 @@ function SampleNextArrow(props: any) {
 
   return (
     <div
-      className="absolute bottom-[50%] left-6 w-12 h-8 border-[1px] shadow-md border-black text-white bg-blue text-xl flex items-center justify-center rounded-md hover:bg-white hover:border-blue hover:text-black cursor-pointer duration-300 z-10"
+      className="absolute bottom-[50%] left-6 w-12 h-8 border-[1px] shadow-md border-black text-yellow bg-blue text-2xl flex items-center justify-center rounded-md hover:bg-white hover:border-blue hover:text-black cursor-pointer duration-300 z-10"
       onClick={onClick}
     >
       <BsArrowLeft />
@@ -33,7 +33,7 @@ function SamplePrevArrow(props: any) {
 
   return (
     <div
-      className="absolute bottom-[50%] right-6 w-12 h-8 border-[1px] shadow-md border-black text-white bg-blue text-xl flex items-center justify-center rounded-md hover:bg-white hover:border-blue hover:text-black cursor-pointer duration-300 z-10"
+      className="absolute bottom-[50%] right-6 w-12 h-8 border-[1px] shadow-md border-black text-yellow bg-blue text-2xl flex items-center justify-center rounded-md hover:bg-white hover:border-blue hover:text-black cursor-pointer duration-300 z-10"
       onClick={onClick}
     >
       <BsArrowRight />
@@ -74,7 +74,7 @@ const Products = ({ productData, sectionTitle }: Props) => {
         </div>
         {/* Slider */}
       <Slider {...settings}>
-        {productData.map((item: Product, index: number) => (
+        {productData?.map((item: Product) => (
           
           <div
             key={item._id}
@@ -92,7 +92,7 @@ const Products = ({ productData, sectionTitle }: Props) => {
               />
             </div>
             {/* Description Start */}
-            <div className="px-2 py-4 flex flex-col justify-center border-x-[1px] border-x-gray-200 border-b-[1px] border-b-gray-200">
+            <div className="px-3 pb-2 flex flex-col justify-center border-x-[1px] border-x-gray-200 border-b-[1px] border-b-gray-200">
               <div className="flex justify-between py-2">
                 <button
                   onClick={() =>
@@ -174,8 +174,6 @@ const Products = ({ productData, sectionTitle }: Props) => {
               </div>
             </div>
             </div>
-
-
 
         ))}
       </Slider>

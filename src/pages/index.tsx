@@ -13,6 +13,7 @@ interface Props {
 
 export default function Home({ productData }: Props) {
 
+  // console.log(productData)
   return (
     <>
       <Head>
@@ -24,22 +25,21 @@ export default function Home({ productData }: Props) {
       </Head>
 
       <main className="bg-lightBlue">
-      
         <div className="max-w-contentContainer mx-auto bg-white">
-          <Banner  />
-          
-          <Products 
-          productData = {productData}
-          sectionTitle = 'Featured Products'
+          <Banner />
+
+          <Products
+            productData={productData}
+            sectionTitle="Featured Products"
           />
 
           <AdsOne />
 
-          <Products 
-          productData = {productData}
-          sectionTitle = 'Latest Products'
-          />
+          <Products productData={productData} sectionTitle="Latest Products" />
 
+          <AdsOne />
+
+          <Products productData={productData} sectionTitle="Best Selling Products" />
         </div>
       </main>
     </>

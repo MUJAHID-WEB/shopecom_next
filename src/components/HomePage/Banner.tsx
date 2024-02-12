@@ -91,8 +91,8 @@ const Banner = () => {
 
       {/* Side Banner */}
 
-      <div className="w-1/3 border-[1px] border-gray-200 rounded-lg shadow-bannerShadow p-4 flex flex-col justify-between relative">
-        <div className="flex items-center justify-between">
+      <div className="w-1/3 border-[1px] border-gray-200 rounded-lg shadow-bannerShadow p-4 flex flex-col justify-between items-start relative">
+        <div className="flex items-center justify-between gap-11">
           <h2 className="text-xl font-semibold text-black">
             Flash pick of the day
           </h2>
@@ -101,20 +101,22 @@ const Banner = () => {
           </p>
         </div>
         <div className="relative w-[265px] aspect-[283/100] my-2">
-        <Image
-          src="/assets/images/slider/banner.png"
-          alt="bannerImg"
-          
-          width={250}
-          height={0}
-          className="w-full object-cover"
-        />
-</div>
+          <Image
+            src="/assets/images/slider/banner.png"
+            alt="bannerImg"
+            width={250}
+            height={0}
+            className="w-full object-cover"
+          />
+        </div>
+
+        <div className="flex flex-col justify-start ">
         <BtnPrimary btnText="Options" />
         <p className="text-lg text-black font-semibold">From $199.99</p>
         <p className="text-base text-gray-500 -mt-1">
           TV Stand Cabinet for Livin Room ...
         </p>
+        </div>
       </div>
     </div>
   );

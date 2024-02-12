@@ -23,7 +23,7 @@ const BannerSlider = ({image, title, description, btntext, className}:Props) => 
           />
 
 
-          <div className='absolute w-60 h-full top-0 left-4 flex flex-col gap-3 text-orange-400' >
+          <div className='absolute w-60 h-full top-4 left-4 flex flex-col gap-3 text-orange-400' >
             <h1 className='font-bold text-2xl'>
                 {title}
             </h1>
